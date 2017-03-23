@@ -105,6 +105,7 @@ var getUserGuess = function() {
 	printUserOptions();
 	getUserGuess = sget().trim();
 	getUserGuess= getUserGuess.toLowerCase();
+	
 
 
 };
@@ -120,19 +121,19 @@ var getComputerGuess = function() {
 	} else if (computerGuess==3) {
 		computerGuess= "scissors";
 	}
-
+	
 };
 
 var makeGuess = function() {
 	getUserGuess();
 	getComputerGuess();
-
+	checkGuess();
 };
 
-var checkGuess = function() {
+var checkGuess = function(userGuess, computerGuess) {
 	switch (true) { 
 		case (userGuess=="rock" && computerGuess=="scissors"):
-			console.log("rock crushes scissors1");
+			console.log("rock crushes scissors!");
 			break;
 		case (userGuess=="rock" && computerGuess=="paper"):
 			console.log("paper covers rock!");
@@ -176,7 +177,7 @@ var returnToMain = function () {
 //-------------------------------------------------------
 
 var runProgram = function() {
-	getComputerGuess();
+	makeGuess();
 }();
 
 
