@@ -138,8 +138,8 @@ var makeGuess = function() {
 
 var checkGuess = function() {
 	
-	switch (userGuess, computerGuess) { 
-		case userGuess=="rock"&& userGuess=="scissors":
+	switch (true) { 
+		case userGuess=="rock"&& computerGuess=="scissors":
 			console.log("rock crushes scissors!");
 			break;
 		case userGuess=="rock" && computerGuess=="paper":
@@ -161,7 +161,7 @@ var checkGuess = function() {
 			console.log("its a tie!");
 			break;			
 		default:
-			console.log("You failed.");
+			console.log("Invalid entry, try again");
 
 }
 };
