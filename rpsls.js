@@ -15,7 +15,7 @@ var mainMenuMessages = {
 					welcome: "\n**********************************************************************\n" +
 								"               Rock...Paper...Scissors...Lizard...Spock!    " +
 								"\n**********************************************************************\n",
-					add: "1. To add a product, press 1 ",
+					add: "1. To make a , press 1 ",
 					delete:"2. To delete a product or press 2 ",
 					search: "3. To search for a product press 3",
 					modify: "4. To modify the amount of stock for a product press 4 ",
@@ -25,13 +25,21 @@ var mainMenuMessages = {
 
 					};
 
-var userMessages= { 
-					description: "Enter product description:",
-					price: "Enter product price: ",
-					inventory: "Enter number of items available: ",
-					productNotFound: "Product not found",
-					invalid: "Invalid entry"
+var winMessages= { 
+					scissorWinPaper: "Scissors cuts Paper:",
+					paperWinRock: "Paper covers Rock ",
+					lizardWinSpock: "Rock crushes Lizard ",
+					spockWinScissors: "Lizard poisons Spock",
+					scissorsWinLizard: "Scissors decapitates Lizard",
+					lizardWinPaper: "Lizard eats Paper",
+					paperWinSpock: "Paper disproves Spock",
+					spockWinRock: "Spock vaporizes Rock"
+					
 					};
+var userMessages = {
+					invalid: "Invalid entry",
+
+};					
 
 var printMenu = function() {
     for (var key in mainMenuMessages) {
