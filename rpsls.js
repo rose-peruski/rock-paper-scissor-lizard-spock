@@ -8,11 +8,15 @@
 // Paper disproves Spock
 // Spock vaporizes Rock
 
+/*1.rock
+2. paper
+3. scisssors */
+
 var sget = require("sget");
 var userGuess;
 var computerGuess; 
 
-var gameArray = ["rock", "paper", "scissors", "lizard", "spock"];
+var gameArray = ["rock", "paper", "scissors"];
 
 var mainMenuMessages = {
 					welcome: "\n**********************************************************************\n" +
@@ -106,16 +110,52 @@ var getUserGuess = function() {
 };
 
 var getComputerGuess = function() {
-	var computerGuess = Math.floor((Math.random() * gameArray.length) + 1);
+	computerGuess = Math.floor((Math.random() * gameArray.length) + 1);
 	console.log(computerGuess);
+
+	if (computerGuess==1) {
+		computerGuess = "rock";
+	} else if (computerGuess==2) {
+		computerGuess = "paper";
+	} else if (computerGuess==3) {
+		computerGuess= "scissors";
+	}
 
 };
 
 var makeGuess = function() {
 	getUserGuess();
 	getComputerGuess();
-	
 
+};
+
+var checkGuess = function() {
+	switch (true) { 
+		case (userGuess=="rock" && computerGuess=="scissors"):
+			console.log("rock crushes scissors1");
+			break;
+		case (userGuess=="rock" && computerGuess=="paper"):
+			console.log("paper covers rock!");
+			break;
+ 		case (userGuess=="paper" && computerGuess=="rock"):
+			console.log("paper covers rock!");
+			break;
+		case (userGuess=="paper" && computerGuess=="scissors"):
+			console.log("Scissors cut paper!");
+			break;
+		case (userGuess=="scissors" && computerGuess=="rock"): 
+			console.log("rock crushes scissors!");
+			break;	
+		case (userGuess=="scissors" && computerGuess=="paper"): 
+			console.log("Scissors cut paper!");
+			break;
+		case (userGuess==computerGuess): 
+			console.log("its a tie!");
+			break;			
+		default:
+			console.log("You failed.");
+
+}
 };
 
 //----------------HELPFUL TOOLS---------------------------
