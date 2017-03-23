@@ -8,8 +8,11 @@
 // Paper disproves Spock
 // Spock vaporizes Rock
 
-
 var sget = require("sget");
+var userGuess;
+var computerGuess; 
+
+var gameArray = ["rock", "paper", "scissors", "lizard", "spock"];
 
 var mainMenuMessages = {
 					welcome: "\n**********************************************************************\n" +
@@ -35,6 +38,7 @@ var winMessages= {
 					};
 
 var userOptions = {
+					main: "please type one of the following",
 					rock: "rock",
 					paper: "paper",
 					scissors: "scissors",
@@ -94,13 +98,24 @@ var mainMenu = function() {
 };
 
 var getUserGuess = function() {
-	getUserGuess = sget(userMessages.description).trim();
+	printUserOptions();
+	getUserGuess = sget().trim();
 	getUserGuess= getUserGuess.toLowerCase();
+
+
 };
 
 var getComputerGuess = function() {
-	getComputerGuess = sget(userMessages.price).trim();
-	getComputerGuess= parseFloat(getComputerGuess);
+	var computerGuess = Math.floor((Math.random() * gameArray.length) + 1);
+	console.log(computerGuess);
+
+};
+
+var makeGuess = function() {
+	getUserGuess();
+	getComputerGuess();
+	
+
 };
 
 //----------------HELPFUL TOOLS---------------------------
@@ -121,9 +136,7 @@ var returnToMain = function () {
 //-------------------------------------------------------
 
 var runProgram = function() {
-	printMenu();
-	printWinMessages();
-	printUserOptions();
+	getComputerGuess();
 }();
 
 
