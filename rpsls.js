@@ -15,18 +15,15 @@ var mainMenuMessages = {
 					welcome: "\n**********************************************************************\n" +
 								"               Rock...Paper...Scissors...Lizard...Spock!    " +
 								"\n**********************************************************************\n",
-					add: "1. To make a , press 1 ",
-					delete:"2. To delete a product or press 2 ",
-					search: "3. To search for a product press 3",
-					modify: "4. To modify the amount of stock for a product press 4 ",
-					product: "5. To modify a product's description, press 5",
-					view: "6. To see the entire store, press 6",
-					exit: "7. To exit, type 'exit' or press 7"	
+					add: "1. 1-Player press 1 ",
+					delete:"2. 2 player press 2 ",
+					view: "3. View Rules press 3",
+					exit: "4. To exit, type 'exit' or press "	
 
 					};
 
 var winMessages= { 
-					scissorWinPaper: "Scissors cuts Paper:",
+					scissorWinPaper: "Scissors cuts Paper",
 					paperWinRock: "Paper covers Rock ",
 					lizardWinSpock: "Rock crushes Lizard ",
 					spockWinScissors: "Lizard poisons Spock",
@@ -36,8 +33,14 @@ var winMessages= {
 					spockWinRock: "Spock vaporizes Rock"
 					
 					};
-var userMessages = {
-					invalid: "Invalid entry",
+
+var userOptions = {
+					rock: "rock",
+					paper: "paper",
+					scissors: "scissors",
+					lizard: "lizard",
+					spock: "Spock",
+					
 
 };					
 
@@ -46,6 +49,18 @@ var printMenu = function() {
       console.log(mainMenuMessages[key]);
     }
 };
+
+var printWinMessages = function () {
+	for (var key in winMessages) {
+      console.log(winMessages[key]);
+    }
+}
+
+var printUserOptions = function () {
+	for (var key in userOptions) {
+      console.log(userOptions[key]);
+    }
+}
 
 var mainMenu = function() {
 	//present user with options 
@@ -105,7 +120,11 @@ var returnToMain = function () {
 
 //-------------------------------------------------------
 
-
+var runProgram = function() {
+	printMenu();
+	printWinMessages();
+	printUserOptions();
+}();
 
 
 
