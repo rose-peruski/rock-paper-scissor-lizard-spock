@@ -54,13 +54,13 @@ var printWinMessages = function () {
 	for (var key in winMessages) {
       console.log(winMessages[key]);
     }
-}
+};
 
 var printUserOptions = function () {
 	for (var key in userOptions) {
       console.log(userOptions[key]);
     }
-}
+};
 
 var mainMenu = function() {
 	//present user with options 
