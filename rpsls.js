@@ -121,7 +121,10 @@ var getComputerGuess = function() {
 	} else if (computerGuess==3) {
 		computerGuess= "scissors";
 	}
-	
+	computerGuess.toString();
+	console.log(computerGuess 
+	+" x2");
+};	
 
 var makeGuess = function() {
 	
@@ -134,32 +137,31 @@ var makeGuess = function() {
 };
 
 var checkGuess = function() {
-
-	if ()
-	// switch (getUserGuess(), getComputerGuess()) { 
-	// 	case (userGuess=="rock" && computerGuess=="scissors"):
-	// 		console.log("rock crushes scissors!");
-	// 		break;
-	// 	case (userGuess=="rock" && computerGuess=="paper"):
-	// 		console.log("paper covers rock!");
-	// 		break;
- // 		case (userGuess=="paper" && computerGuess=="rock"):
-	// 		console.log("paper covers rock!");
-	// 		break;
-	// 	case (userGuess=="paper" && computerGuess=="scissors"):
-	// 		console.log("Scissors cut paper!");
-	// 		break;
-	// 	case (userGuess=="scissors" && computerGuess=="rock"): 
-	// 		console.log("rock crushes scissors!");
-	// 		break;	
-	// 	case (userGuess=="scissors" && computerGuess=="paper"): 
-	// 		console.log("Scissors cut paper!");
-	// 		break;
-	// 	case (userGuess==computerGuess): 
-	// 		console.log("its a tie!");
-	// 		break;			
-	// 	default:
-	// 		console.log("You failed.");
+	
+	switch (userGuess, computerGuess) { 
+		case userGuess=="rock"&& userGuess=="scissors":
+			console.log("rock crushes scissors!");
+			break;
+		case userGuess=="rock" && computerGuess=="paper":
+			console.log("paper covers rock!");
+			break;
+ 		case userGuess=="paper" && computerGuess=="rock":
+			console.log("paper covers rock!");
+			break;
+		case userGuess=="paper" && computerGuess=="scissors":
+			console.log("Scissors cut paper!");
+			break;
+		case userGuess=="scissors" && computerGuess=="rock": 
+			console.log("rock crushes scissors!");
+			break;	
+		case userGuess=="scissors" && computerGuess=="paper": 
+			console.log("Scissors cut paper!");
+			break;
+		case userGuess==computerGuess: 
+			console.log("its a tie!");
+			break;			
+		default:
+			console.log("You failed.");
 
 }
 };
@@ -182,7 +184,7 @@ var returnToMain = function () {
 //-------------------------------------------------------
 
 var runProgram = function() {
-	checkGuess();
+	makeGuess();
 }();
 
 
