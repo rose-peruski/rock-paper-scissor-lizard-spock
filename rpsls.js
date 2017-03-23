@@ -103,8 +103,8 @@ var mainMenu = function() {
 
 var getUserGuess = function() {
 	printUserOptions();
-	getUserGuess = sget().trim();
-	getUserGuess= getUserGuess.toLowerCase();
+	userGuess = sget().trim();
+	userGuess= userGuess.toLowerCase();
 	
 
 
@@ -112,7 +112,7 @@ var getUserGuess = function() {
 
 var getComputerGuess = function() {
 	computerGuess = Math.floor((Math.random() * gameArray.length) + 1);
-	console.log(computerGuess);
+	
 
 	if (computerGuess==1) {
 		computerGuess = "rock";
@@ -122,39 +122,44 @@ var getComputerGuess = function() {
 		computerGuess= "scissors";
 	}
 	
-};
 
 var makeGuess = function() {
+	
 	getUserGuess();
+	console.log("Your guess: " +userGuess);
 	getComputerGuess();
+	console.log("computer guess: " +computerGuess);
+	
 	checkGuess();
 };
 
-var checkGuess = function(userGuess, computerGuess) {
-	switch (true) { 
-		case (userGuess=="rock" && computerGuess=="scissors"):
-			console.log("rock crushes scissors!");
-			break;
-		case (userGuess=="rock" && computerGuess=="paper"):
-			console.log("paper covers rock!");
-			break;
- 		case (userGuess=="paper" && computerGuess=="rock"):
-			console.log("paper covers rock!");
-			break;
-		case (userGuess=="paper" && computerGuess=="scissors"):
-			console.log("Scissors cut paper!");
-			break;
-		case (userGuess=="scissors" && computerGuess=="rock"): 
-			console.log("rock crushes scissors!");
-			break;	
-		case (userGuess=="scissors" && computerGuess=="paper"): 
-			console.log("Scissors cut paper!");
-			break;
-		case (userGuess==computerGuess): 
-			console.log("its a tie!");
-			break;			
-		default:
-			console.log("You failed.");
+var checkGuess = function() {
+
+	if ()
+	// switch (getUserGuess(), getComputerGuess()) { 
+	// 	case (userGuess=="rock" && computerGuess=="scissors"):
+	// 		console.log("rock crushes scissors!");
+	// 		break;
+	// 	case (userGuess=="rock" && computerGuess=="paper"):
+	// 		console.log("paper covers rock!");
+	// 		break;
+ // 		case (userGuess=="paper" && computerGuess=="rock"):
+	// 		console.log("paper covers rock!");
+	// 		break;
+	// 	case (userGuess=="paper" && computerGuess=="scissors"):
+	// 		console.log("Scissors cut paper!");
+	// 		break;
+	// 	case (userGuess=="scissors" && computerGuess=="rock"): 
+	// 		console.log("rock crushes scissors!");
+	// 		break;	
+	// 	case (userGuess=="scissors" && computerGuess=="paper"): 
+	// 		console.log("Scissors cut paper!");
+	// 		break;
+	// 	case (userGuess==computerGuess): 
+	// 		console.log("its a tie!");
+	// 		break;			
+	// 	default:
+	// 		console.log("You failed.");
 
 }
 };
@@ -177,7 +182,7 @@ var returnToMain = function () {
 //-------------------------------------------------------
 
 var runProgram = function() {
-	makeGuess();
+	checkGuess();
 }();
 
 
