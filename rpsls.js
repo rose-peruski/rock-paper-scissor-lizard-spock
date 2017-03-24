@@ -16,14 +16,14 @@ var sget = require("sget");
 var userGuess;
 var computerGuess; 
 
-var gameArray = ["rock", "paper", "scissors"];
+var gameArray = ["rock", "paper", "scissors", "lizard", "spock"];//make object with key value pair
 
 var mainMenuMessages = {
 					welcome: "\n**********************************************************************\n" +
 								"               Rock...Paper...Scissors...Lizard...Spock!    " +
 								"\n**********************************************************************\n",
-					add: "1. 1-Player press 1 ",
-					delete:"2. 2 player press 2 ",
+					onePlayer: "1. 1-Player press 1 ",
+					twoPlayer:"2. 2 player press 2 ",
 					view: "3. View Rules press 3",
 					exit: "4. To exit, type 'exit' or press "	
 
@@ -62,6 +62,7 @@ var printWinMessages = function () {
 	for (var key in winMessages) {
       console.log(winMessages[key]);
     }
+    returnToMain();
 };
 
 var printUserOptions = function () {
@@ -79,18 +80,12 @@ var mainMenu = function() {
 	var userSelection = sget("Make your selection:").trim();
 		userSelection=userSelection.toLowerCase();
 		if(userSelection==1 ) {
-			addItem();
+			makeGuess();
 		} else if (userSelection==2) {
-			deleteItem();
+			console.log("This feature is in the next version");
 		} else if (userSelection==3) {
-			searchItem();
-		} else if (userSelection==4) {
-			modifyStock();
-		} else if (userSelection==5) {
-			modifyDescription();
-		} else if (userSelection==6) {			
-			viewStore();
-		} else if (userSelection=='exit' || userSelection==7) {
+			printWinMessages();
+		} else if (userSelection=='exit' || userSelection==4) {
 			exitProgram();
 		
 		}else {
@@ -101,6 +96,9 @@ var mainMenu = function() {
 
 };
 
+var exitProgram= function(){
+	process.exit();
+}
 var getUserGuess = function() {
 	printUserOptions();
 	userGuess = sget().trim();
@@ -113,17 +111,25 @@ var getUserGuess = function() {
 var getComputerGuess = function() {
 	computerGuess = Math.floor((Math.random() * gameArray.length) + 1);
 	
-
-	if (computerGuess==1) {
+	switch(true) {
+	case (computerGuess==1):
 		computerGuess = "rock";
-	} else if (computerGuess==2) {
+		break;
+	 case (computerGuess==2):
 		computerGuess = "paper";
-	} else if (computerGuess==3) {
+		break;
+	case (computerGuess==3):
 		computerGuess= "scissors";
-	}
-	computerGuess.toString();
-	console.log(computerGuess 
-	+" x2");
+		break;
+	case (computerGuess==4):
+		computerGuess="lizard";
+		break;
+	case (computerGuess==5):
+		computerGuess='spock';
+		break;	
+	default:
+		console.log("Something went wrong");
+}	
 };	
 
 var makeGuess = function() {
@@ -139,7 +145,7 @@ var makeGuess = function() {
 var checkGuess = function() {
 	
 	switch (true) { 
-		case userGuess=="rock"&& computerGuess=="scissors":
+		case userGuess=="rock" && computerGuess=="scissors":
 			console.log("rock crushes scissors!");
 			break;
 		case userGuess=="rock" && computerGuess=="paper":
@@ -155,15 +161,32 @@ var checkGuess = function() {
 			console.log("rock crushes scissors!");
 			break;	
 		case userGuess=="scissors" && computerGuess=="paper": 
-			console.log("Scissors cut paper!");
+			console.log("scissors cut paper!");
 			break;
+		case userGuess=="lizard" && computerGuess=="paper": 
+			console.log("lizard eats paper!");
+			break;	
+		case userGuess=="lizard" && computerGuess=="spock": 
+			console.log("lizard poisons Spock!");
+			break;	
+		case userGuess=="spock" && computerGuess=="scissors": 
+			console.log("Spock smashes scissors");
+			break;	
+		case userGuess=="spock" && computerGuess=="rock": 
+			console.log("Spock vaporizes rock!");
+			break;		
+
+
 		case userGuess==computerGuess: 
 			console.log("its a tie!");
 			break;			
 		default:
-			console.log("Invalid entry, try again");
+			console.log("no one wins, try again");
+
+
 
 }
+	returnToMain();
 };
 
 //----------------HELPFUL TOOLS---------------------------
@@ -184,7 +207,7 @@ var returnToMain = function () {
 //-------------------------------------------------------
 
 var runProgram = function() {
-	makeGuess();
+	mainMenu();
 }();
 
 
